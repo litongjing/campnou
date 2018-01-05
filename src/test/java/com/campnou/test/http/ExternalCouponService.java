@@ -28,7 +28,7 @@ public class ExternalCouponService {
         jsonObject.put("actiontype", "INTIME");
         jsonObject.put("storeno", "MJ01");
         String result = IntimeHttpPostUtil.send(privateKey, urlStr, from, jsonObject);
-        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~出参~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("====================================出参====================================");
         System.out.println(FormatUtil.formatJson(result));
     }
 

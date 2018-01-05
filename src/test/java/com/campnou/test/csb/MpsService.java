@@ -31,7 +31,7 @@ public class MpsService extends BaseService {
         List<String> list = Lists.newArrayList();
         condition.put("account", "17245211");
         condition.put("bizStatus", list);
-        condition.put("isContainMj", "true");
+        condition.put("isContainMj", "false");
         JSON conditionJson = (JSON) toJSON(condition);
         params.put("GetListConditionDO", conditionJson.toString());
         System.out.println(params);
