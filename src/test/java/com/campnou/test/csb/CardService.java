@@ -7,9 +7,5 @@ import org.junit.Test;
  * @Description:
  * @Date:Create by 上午11:15 2018/1/4
  */
-public class CardService extends BaseService{
-    @Test
-    public void getCardYeVipCommodList(){
-
-    }
+public class CardService extends BaseService {
 }

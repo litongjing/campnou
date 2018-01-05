@@ -61,12 +61,15 @@ public class MpsService extends BaseService {
     public void insertCoupon() throws ParseException {
         Map<String, String> params = Maps.newHashMap();
         Map<String, Object> coupon = Maps.newHashMap();
-        coupon.put("payRule", "42767");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String startDate = String.valueOf(String.valueOf(sdf.parse("2017-04-02 09:09:09").getTime()));
+        String endDate = String.valueOf(String.valueOf(sdf.parse("2017-04-02 10:10:10").getTime()));
+        coupon.put("payRule", "16889");
         coupon.put("couponName", "xavi test");
         coupon.put("couponDesc", "xavi test");
         coupon.put("amount", "1");
-        coupon.put("startDate", String.valueOf(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2017-04-01 10:10:10").getTime()));
-        coupon.put("endDate", String.valueOf(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse("2017-04-02 10:10:10").getTime()));
+        coupon.put("startDate", startDate);
+        coupon.put("endDate", endDate);
         coupon.put("account", "1");
         coupon.put("channel", "8");
         params.put("couponDO", toJSON(coupon).toString());
