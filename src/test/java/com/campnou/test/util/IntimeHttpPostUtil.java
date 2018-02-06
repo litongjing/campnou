@@ -1,6 +1,7 @@
 package com.campnou.test.util;
 
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.base.Strings;
 import com.google.common.collect.Maps;
 import org.apache.commons.codec.binary.Base64;
 
@@ -36,10 +37,12 @@ public class IntimeHttpPostUtil {
     public static String send(String privateKey, String urlStr, String from, JSONObject data) {
         JSONObject postJson = new JSONObject();
         int nonce = new Random().nextInt(1000);
+//        int nonce=50;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String now = sdf.format(new Date());
         postJson.put("from", from);
         postJson.put("nonce", String.valueOf(nonce));
+//        postJson.put("timestamp", "2018-01-25 14:59:31");
         postJson.put("timestamp", now);
         postJson.put("data", data);
         String sign = "";
@@ -66,7 +69,7 @@ public class IntimeHttpPostUtil {
         System.out.println("====================================入参====================================");
         System.out.println(FormatUtil.formatJson(paramsStr));
         try {
-            if (sendType == null || sendType.isEmpty()) {
+            if (Strings.isNullOrEmpty(sendType)) {
                 sendType = "POST";
             }
             URL url = new URL(urlStr);
@@ -153,5 +156,31 @@ public class IntimeHttpPostUtil {
         byte[] doFinal = mac.doFinal(dataBytes);
         String checksum = Base64.encodeBase64String(doFinal);
         return checksum;
+    }
+
+    public static void main(String[] args) {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("from", "xavi");
+        jsonObject.put("timestamp", "2016-12-12 12:12:12");
+        jsonObject.put("nonce", "20");
+        Map<String, Object> map = Maps.newHashMap();
+        map.put("pk", jsonObject.getString("from"));
+        map.put("utc", jsonObject.getString("timestamp"));
+        map.put("ran", jsonObject.getString("nonce"));
+        String[] array = map.values().toArray(new String[0]);
+        StringBuilder builder1 = new StringBuilder();
+        for (String string : array) {
+            builder1.append(string);
+        }
+        String str1 = builder1.toString();
+        System.out.println(str1);
+        Arrays.sort(array);
+        StringBuilder builder = new StringBuilder();
+        for (String string : array) {
+            builder.append(string);
+        }
+        String str = builder.toString();
+        System.out.println(str);
+        ;
     }
 }
