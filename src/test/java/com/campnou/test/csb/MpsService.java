@@ -63,9 +63,9 @@ public class MpsService extends BaseService {
         Map<String, String> params = Maps.newHashMap();
         Map<String, Object> coupon = Maps.newHashMap();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String startDate = String.valueOf(String.valueOf(sdf.parse("2017-04-02 09:09:09").getTime()));
-        String endDate = String.valueOf(String.valueOf(sdf.parse("2017-04-02 10:10:10").getTime()));
-        coupon.put("payRule", "16889");
+        String startDate = String.valueOf(String.valueOf(sdf.parse("2018-01-02 09:09:09").getTime()));
+        String endDate = String.valueOf(String.valueOf(sdf.parse("2018-04-02 10:10:10").getTime()));
+        coupon.put("payRule", "17045");
         coupon.put("couponName", "xavi test");
         coupon.put("couponDesc", "xavi test");
         coupon.put("amount", "1");
@@ -74,7 +74,7 @@ public class MpsService extends BaseService {
         coupon.put("account", "1");
         coupon.put("channel", "8");
         coupon.put("posseq","1232132");
-        coupon.put("storeno","HZ01");
+        coupon.put("storeno","MJ01");
         params.put("couponDO", toJSON(coupon).toString());
         String apiName = "com.intime.mps.client.service.CouponService.insert";
         System.out.println(FormatUtil.formatJson(CsbPostUtil.csbPost(apiName, params, test)));

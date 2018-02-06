@@ -190,23 +190,26 @@ public class ExternalCouponService {
         JSONObject jsonObject = new JSONObject();
         //type
         JSONObject typeJson = new JSONObject();
-        typeJson.put("HDCODE", "WD-WMAMAC244425");
+        typeJson.put("HDCODE", "123001327619");
         typeJson.put("POSNO", "995");
         typeJson.put("OPERTYPE", "COUPONCODE");
         typeJson.put("OPERATOR", "0000");
-        typeJson.put("SYSDATE", "2014-05-21");
-        typeJson.put("COUPONCODE", "123456");
+        typeJson.put("SYSDATE", "2018-02-06");
+        typeJson.put("COUPONCODE", "6611623841157553");
         typeJson.put("PAYTYPE", "0");
         typeJson.put("PAYTIME", "18:16:25");
         typeJson.put("PAYMENT", "COUPON");
-        typeJson.put("PAYDATE", "2014-05-21");
+        typeJson.put("PAYDATE", "2018-02-06");
         typeJson.put("AMOUNT", "");
         typeJson.put("PASSWORD", "");
         typeJson.put("SEQNO", "52549950001");
         typeJson.put("MACADDR", "00-11-25-C1-C5-EC");
-        typeJson.put("PAYSTORE", "HZ06");
+        typeJson.put("PAYSTORE", "MJ01");
         typeJson.put("IPADDR", "192.168.121.30");
         typeJson.put("MSGCODE", "");
+        typeJson.put("USEDPAYRULES","17045,1,17045");
+        typeJson.put("USEDCOUPONS","17045,1,17045");
+        typeJson.put("MANUALCOUPON","100");
         //operdata
         JSONArray operdataJSONArray = new JSONArray();
 
@@ -214,7 +217,7 @@ public class ExternalCouponService {
         data1.put("PRICE", "1000");
         data1.put("MUTEXSTR", "");
         data1.put("COMCODE", "1021");
-        data1.put("ACTUALAMOUNT", "1000");
+        data1.put("ACTUALAMOUNT", "300");
         data1.put("AMOUNT", "1000");
         data1.put("DISCOUNT", "0");
         data1.put("COUNTERCODE", "00160");
@@ -225,7 +228,7 @@ public class ExternalCouponService {
         data2.put("PRICE", "1000");
         data2.put("MUTEXSTR", "");
         data2.put("COMCODE", "1021");
-        data2.put("ACTUALAMOUNT", "1000");
+        data2.put("ACTUALAMOUNT", "300");
         data2.put("AMOUNT", "1000");
         data2.put("DISCOUNT", "0");
         data2.put("COUNTERCODE", "00160");
