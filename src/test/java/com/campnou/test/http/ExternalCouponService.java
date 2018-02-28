@@ -19,7 +19,7 @@ public class ExternalCouponService {
      */
     @Test
     public void addAction() {
-        String urlStr = "http://192.168.130.7:9090/externalcoupon/api/coupon/genaction";
+        String urlStr = "http://122.224.218.139:1830/externalcoupon/api/coupon/genaction";
         String privateKey = "intime$4r#sE";
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("actionname", "2018-02-06 xavi test");
@@ -37,7 +37,7 @@ public class ExternalCouponService {
      */
     @Test
     public void modAction() {
-        String urlStr = "http://192.168.130.7:9090/externalcoupon/api/coupon/modaction";
+        String urlStr = "http://122.224.218.139:1830/externalcoupon/api/coupon/modaction";
         String privateKey = "intime$4r#sE";
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("actionno", "INTIME16916");
@@ -55,26 +55,26 @@ public class ExternalCouponService {
      */
     @Test
     public void addPayRule() {
-        String urlStr = "http://192.168.130.7:9090/externalcoupon/api/coupon/genpayrule";
+        String urlStr = "http://122.224.218.139:1830/externalcoupon/api/coupon/genpayrule";
         String privateKey = "intime$4r#sE";
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("actionno", "INTIME16916");
-        jsonObject.put("categoryid", "11");
-        jsonObject.put("paysite", "ON");
+        jsonObject.put("actionno", "INTIME36478");
+        jsonObject.put("categoryid", "MJ");
+        jsonObject.put("paysite", "BOTH");
         jsonObject.put("paytype", "ALL");
-        jsonObject.put("startdate", "2018-01-01 00:00:00");
-        jsonObject.put("enddate", "2018-12-30 23:59:59");
-        jsonObject.put("startamount", "200");
-        jsonObject.put("endamount", "1000");
-        jsonObject.put("rulememo", "测试");
+        jsonObject.put("startdate", "2018-02-09 00:00:00");
+        jsonObject.put("enddate", "2018-02-11 23:59:59");
+        jsonObject.put("startamount", "0.10");
+        jsonObject.put("endamount", "99999999");
+        jsonObject.put("rulememo", "");
         jsonObject.put("paymenta", "EO");
-        jsonObject.put("paymentb", "E04");
-        jsonObject.put("yhstoreno", "MJ01,MJ02");
-        jsonObject.put("mutex", "Y");
-        jsonObject.put("storeno", "MJ01");
-        jsonObject.put("orderlimit", "10");
-        jsonObject.put("oper", "beckham");
-        jsonObject.put("useType", "0");
+        jsonObject.put("paymentb", "E0403");
+        //jsonObject.put("yhstoreno", "MJ01,MJ02");
+        jsonObject.put("mutex", "N");
+        jsonObject.put("storeno", "XA04");
+        jsonObject.put("orderlimit", "1");
+        jsonObject.put("oper", "123");
+//        jsonObject.put("useType", "0");
         String result = IntimeHttpPostUtil.send(privateKey, urlStr, from, jsonObject);
         System.out.println("====================================出参====================================");
         System.out.println(FormatUtil.formatJson(result));
@@ -190,7 +190,7 @@ public class ExternalCouponService {
         JSONObject jsonObject = new JSONObject();
         //type
         JSONObject typeJson = new JSONObject();
-        typeJson.put("HDCODE", "123001327619");
+        typeJson.put("HDCODE", "9124918");
         typeJson.put("POSNO", "995");
         typeJson.put("OPERTYPE", "COUPONCODE");
         typeJson.put("OPERATOR", "0000");
@@ -244,5 +244,16 @@ public class ExternalCouponService {
         String result = IntimeHttpPostUtil.send(privateKey, urlStr, from, jsonObject);
         System.out.println("====================================出参====================================");
         System.out.println(FormatUtil.formatJson(result));
+    }
+
+    @Test
+    public void queryCoupon(){
+            String urlStr = "http://localhost:8081/externalcoupon/api/coupon/querycoupon";
+            String privateKey = "intime$4r#sE";
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("couponcode", "65877140134934945");
+            String result = IntimeHttpPostUtil.send(privateKey, urlStr, from, jsonObject);
+            System.out.println("====================================出参====================================");
+            System.out.println(FormatUtil.formatJson(result));
     }
 }
