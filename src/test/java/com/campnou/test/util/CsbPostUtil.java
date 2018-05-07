@@ -40,6 +40,35 @@ public class CsbPostUtil {
 
     }
 
+    public static String cardCsbPost(String apiName, Map<String, String> params, String env) {
+        System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~当前env：" + env + "~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        if (env.equals("test")) {
+            ak = "1d8e221ae5e54f818fddc5711f05c166";
+            sk = "h7nm9RULmkLw4HwhERAkHTQjm3Y=";
+            requestUrl = "http://101.37.127.104:80/csb";
+            version = "1.0.0.daily";//版本
+        }
+        if (env.equals("pre")) {
+            ak = "5b3e81ae312a442f8a0accd128b84051";
+            sk = "mUNqJBXzB+b62oMlj3Dv1S/rM0g=";
+            requestUrl = "http://101.37.178.69/csb";
+            version = "1.0.0";
+        }
+        if (env.equals("product")) {
+            ak = "5ac45539552146e5831924ce23f30157";
+            sk = "QlBHjIwnK0kAf5oee67E/cjAq2U=";
+            requestUrl = "http://csb.yintai.com/csb";
+            version = "1.0.0";
+        }
+        try {
+            return doCsbPost(apiName, params);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "error";
+        }
+
+    }
+
     private static String doCsbPost(String requestUrl, String apiName, String version, Map<String, String> params,
                                     String ak, String sk) throws HttpCallerException {
         String result = HttpCaller.doPost(requestUrl, apiName, version, params, ak, sk);

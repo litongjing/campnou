@@ -37,7 +37,7 @@ public class MpsService extends BaseService {
         params.put("GetListConditionDO", conditionJson.toString());
         System.out.println(params);
         String apiName = "com.intime.mps.client.service.CouponService.getListByAccount";
-        System.out.println(FormatUtil.formatJson(CsbPostUtil.csbPost(apiName, params, product)));
+        System.out.println(FormatUtil.formatJson(CsbPostUtil.csbPost(apiName, params, test)));
     }
 
     /**
@@ -49,8 +49,11 @@ public class MpsService extends BaseService {
         JSONObject json = new JSONObject();
         json.put("couponCode", "72900600102661615143573");//券号
         params.put("CouponDO", json.toString());
-        String apiName = "com.intime.mps.client.service.getOne";
-        System.out.println(FormatUtil.formatJson(CsbPostUtil.csbPost(apiName, params, pre)));
+//        String apiName = "com.intime.mps.client.service.getOne";
+        String apiName = "com.ali.mos.supplier.facade.MisSupplierFacde.createSupplierAccount.createSupplierAccount";
+        System.out.println(FormatUtil.formatJson(CsbPostUtil.csbPost(apiName, params,test)));
+
+
     }
 
     /**

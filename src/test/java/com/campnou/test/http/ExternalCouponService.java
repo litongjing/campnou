@@ -152,11 +152,11 @@ public class ExternalCouponService {
      */
     @Test
     public void batchCreateBlankCoupon() {
-        String urlStr = "http://192.168.130.7:9090/externalcoupon/api/offline/batchCreateBlankCoupon";
+        String urlStr = "http://localhost:8081/externalcoupon/api/offline/batchCreateBlankCoupon";
         String privateKey = "intime$4r#sE";
         JSONObject jsonObject = new JSONObject();
 //        jsonObject.put("count", "1000");
-        jsonObject.put("count", 100000);
+        jsonObject.put("count", 10);
         String result = IntimeHttpPostUtil.send(privateKey, urlStr, from, jsonObject);
         System.out.println("====================================出参====================================");
         System.out.println(FormatUtil.formatJson(result));
@@ -248,7 +248,8 @@ public class ExternalCouponService {
 
     @Test
     public void queryCoupon(){
-            String urlStr = "http://localhost:8081/externalcoupon/api/coupon/querycoupon";
+            String urlStr = "http://122.224.218.139:1830/externalcoupon/api/coupon/querycoupon";
+//        String urlStr = "http://192.168.130.7:8080/externalcoupon/api/coupon/querycoupon";
             String privateKey = "intime$4r#sE";
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("couponcode", "65877140134934945");

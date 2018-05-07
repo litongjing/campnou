@@ -23,7 +23,20 @@ public class IntimeNetRsService {
 //        String urlStr="http://122.224.218.139:1810/intimenet-rs/api/net/queryCurAmt";
         String privateKey = "intime996";
         JSONObject jsonObject = new JSONObject();
-        jsonObject.put("pathb", "9000001983308=20754");//二轨码
+        jsonObject.put("pathb", "9000100102003773489=99122013410000000");//二轨码
+        String result = IntimeHttpPostUtil.send(privateKey, urlStr, from, jsonObject);
+        System.out.println("====================================出参====================================");
+        System.out.println(FormatUtil.formatJson(result));
+    }
+
+    @Test
+    public void queryAmt() {
+//        String urlStr="http://122.224.218.141:8075/intimenet-rs/api/net/queryCurAmt";
+        String urlStr = "http://122.224.218.141:8077/intimenet-rs/api/net/queryAmt";
+//        String urlStr="http://122.224.218.139:1810/intimenet-rs/api/net/queryCurAmt";
+        String privateKey = "intime_Yode_fm45adn";
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("cardno", "123123123");//二轨码
         String result = IntimeHttpPostUtil.send(privateKey, urlStr, from, jsonObject);
         System.out.println("====================================出参====================================");
         System.out.println(FormatUtil.formatJson(result));
@@ -82,6 +95,21 @@ public class IntimeNetRsService {
         jsonObject.put("shname", "武林商户");//商户名称 无用
         jsonObject.put("rqsj", "20180109131313");//交易日期时间
         // jsonObject.put("memo", "xavi 测试");//备注 无用
+        String result = IntimeHttpPostUtil.send(privateKey, urlStr, from, jsonObject);
+        System.out.println("====================================出参====================================");
+        System.out.println(FormatUtil.formatJson(result));
+    }
+    /**
+     * 银泰网消费
+     */
+    @Test
+    public void ytwConsume(){
+        String urlStr = "http://localhost:8081/intimenet-rs/api/net/rechargeByOrder";
+//        String urlStr = "http://localhost:8081/intimenet-rs/api/net/posConsume";
+//        String urlStr="http://192.168.123.76:8080/intimenet-rs/api/net/posConsume";
+        String privateKey = "intime_Yode_fm45adn";
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("elements", "9000100100514148387~2614686~4000~2614686~0~yintai.com~261468626146869000100100514148387|");
         String result = IntimeHttpPostUtil.send(privateKey, urlStr, from, jsonObject);
         System.out.println("====================================出参====================================");
         System.out.println(FormatUtil.formatJson(result));
